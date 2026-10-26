@@ -1,8 +1,5 @@
 # MG4
 ## Devlog
-Write your Devlog here.
+The boolean variable _up is declared (no value assigned, so by default its value is set to false) and the float variable _timer is declared. On Start, the value of _switchSpeed (which gets assigned in the Inspector) gets assigned to the variable _timer. On Update, the if statement checks if _up is true or false; since its default is false, the else condition gets satisfied, and the y value of the transform.Translate(x: 0, y: 0, z: 0) method is set to be the product of the negative value of _moveSpeed (assigned in the Inspector) multiplied by Time.delta. Since the seconds of Time.delta are being multiplied by a negative, the product decreases each frame, moving the animation down on the y axis. 
 
-## Open-Source Assets
-- [Quirky animal 3D models](https://assetstore.unity.com/packages/3d/characters/animals/quirky-series-free-animals-pack-178235)
-- [City 3D models](https://assetstore.unity.com/packages/3d/environments/simplepoly-city-low-poly-assets-58899)
-- [Bite sound effect](https://freesound.org/people/Jofae/sounds/353067/)
+Simultaneously, the value of Time.deltaTime gets subtracted from _timer each frame, and once its value is equal to or less than 0, _switchSpeed gets reassigned to _timer (essemntially restarting the countdown), and the value of _up gets inversed; since it was false, its inverse becomes true, and the first if-statement condition gets satisfied, now multiplying the y value of the gameObject towards the positives, making it go up instead of down this time as Time.deltaTime gets subtracted from _timer each frame (same as before). This continues in an infinite loop for as long as the game keeps running, or until the player enters the triggers for each GameObject, therefall calling the StopAnimation() method.
