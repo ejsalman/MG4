@@ -37,7 +37,7 @@ public class FloatAnimation : MonoBehaviour
         }
     }
 
-    public void StopAnimation ()
+    public void StopAnimation()
     {
         enabled = false;
     }
